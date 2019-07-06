@@ -87,6 +87,10 @@ static int gpio_init(void)
 	sunxi_gpio_set_cfgpin(SUNXI_GPE(0), SUNIV_GPE_UART0);
 	sunxi_gpio_set_cfgpin(SUNXI_GPE(1), SUNIV_GPE_UART0);
 	sunxi_gpio_set_pull(SUNXI_GPE(1), SUNXI_GPIO_PULL_UP);
+#elif CONFIG_CONS_INDEX == 2 && defined(CONFIG_MACH_SUNIV)
+	sunxi_gpio_set_cfgpin(SUNXI_GPA(2), SUNIV_GPA_UART1);
+	sunxi_gpio_set_cfgpin(SUNXI_GPA(3), SUNIV_GPA_UART1);
+	sunxi_gpio_set_pull(SUNXI_GPA(3), SUNXI_GPIO_PULL_UP);
 #elif CONFIG_CONS_INDEX == 1 && (defined(CONFIG_MACH_SUN4I) || \
 				 defined(CONFIG_MACH_SUN7I) || \
 				 defined(CONFIG_MACH_SUN8I_R40))
